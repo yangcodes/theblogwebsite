@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
 
 //JSX Rules
 //return single element
@@ -13,7 +14,11 @@ import ReactDOM from "react-dom";
 
 function BookList() {
   return (
-    <section>
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
       <Book />
       <Book />
       <Book />
@@ -23,7 +28,7 @@ function BookList() {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image></Image>
       <Title></Title>
       <Author />
@@ -40,7 +45,11 @@ const Image = () => (
 
 const Title = () => <h1>Apples Never Fall</h1>;
 
-const Author = () => <h1>Lians Moritye</h1>;
+const Author = () => (
+  <h2 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
+    Lians Moritye
+  </h2>
+);
 // const Greeting = () => {
 //   return React.createElement(
 //     "div",
