@@ -1,7 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-
 //JSX Rules
 //return single element
 // div/section/article or fragment
@@ -9,53 +5,36 @@ import "./index.css";
 //className instead of class
 //close every element
 //formatting
+import React from "react";
+import ReactDOM from "react-dom";
+//CSS
+import "./index.css";
 
-//nested components, react tools
-
+//setup vars
+const author = "Lians Moritye";
+const title = "Apples Never Falllll";
+const img =
+  "https://images-na.ssl-images-amazon.com/images/I/91YZYvWIhgL._AC_UL200_SR200,200_.jpg";
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book job="woman" />
+      <Book title="superhero" number={22} />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
   return (
     <article className="book">
-      <Image></Image>
-      <Title></Title>
-      <Author />
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{author.toUpperCase()}</h4>
+      <p>{props.job}</p>
+      <p>{props.title}</p>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://images-na.ssl-images-amazon.com/images/I/91YZYvWIhgL._AC_UL200_SR200,200_.jpg"
-    alt=""
-  />
-);
-
-const Title = () => <h1>Apples Never Fall</h1>;
-
-const Author = () => (
-  <h2 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
-    Lians Moritye
-  </h2>
-);
-// const Greeting = () => {
-//   return React.createElement(
-//     "div",
-//     {},
-//     React.createElement("h1", {}, "hello world")
-//   );
-// };
 
 ReactDOM.render(<BookList />, document.getElementById("root"));
